@@ -1,2 +1,2 @@
 # lusteri-bend-website
-Web site about Lusteri bend
+Web site about serbian music band named Lusteri
