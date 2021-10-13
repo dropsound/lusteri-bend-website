@@ -1,9 +1,86 @@
-@use './assets/styles/custom.scss';
+@import './assets/styles/custom.scss';
 
-body {
-    background-color: $almond;
+
+//=====General styles======// 
+
+html {
+    font-size: 14px;
+    font-family: 'Oswald', sans-serif;
 }
 
+body {
+    min-height: 100vh;
+    background-color: $almond;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+//=====Grid=====// 
+
+body {
+    display: grid;
+    //grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 15em auto 8em;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer"
+}
+
+header {grid-area: header;}     
+main {grid-area: main;}
+footer {grid-area: footer;}
+
+//=====Header=====// 
 header {
     background-color: $navy;
+    padding: 4em 0 1em 0;
+    max-height: 10em;    
+    img {
+        max-width: 100%;
+        height: auto;
+        display: flex;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    a {
+        color: $almond;
+    }
+    nav {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+    li > a {
+        width: 100%;
+        border-right: 1px solid $almond;
+        padding-right: 0.5em;
+        margin-right: 0.25em;
+    }
+    a:last-of-type {
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+    }
+    a:hover, a:focus {
+        color: $mango;
+    }
+}
+
+//=====Footer=====// 
+footer {
+    background-color: $red-orange;
 }
