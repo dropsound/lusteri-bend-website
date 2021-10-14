@@ -20,14 +20,14 @@ ul {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 3rem;
   color: #ff6e40;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 h2 {
-  font-size: 2.5em;
+  font-size: 2.5rem;
   color: #1e3d59;
   font-weight: 400;
   text-transform: capitalize;
@@ -62,21 +62,15 @@ footer {
 main {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2fr 3fr 2fr;
-      grid-template-columns: 2fr 3fr 2fr;
-      grid-template-areas: ". section aside";
+  -ms-grid-columns: 2fr 4fr 2fr;
+      grid-template-columns: 2fr 4fr 2fr;
+      grid-template-areas: ". section .";
 }
 
 section {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: section;
-}
-
-aside {
-  -ms-grid-row: 1;
-  -ms-grid-column: 3;
-  grid-area: aside;
 }
 
 header {
@@ -101,7 +95,7 @@ header a {
 
 header nav {
   font-family: 'Oswald', sans-serif;
-  font-size: 2em;
+  font-size: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -113,26 +107,84 @@ header nav {
           align-items: center;
 }
 
-header ul {
-  padding: 0;
-  margin: 0;
-}
-
-header li > a {
-  width: 100%;
+header nav a {
   border-right: 1px solid #f5f0e1;
   padding-right: 0.5em;
-  margin-right: 0.25em;
+  padding-left: 0.5em;
 }
 
-header a:last-of-type {
+header nav a:first-of-type {
+  padding-left: 0;
+}
+
+header nav a:last-of-type {
   border-right: none;
   padding-right: 0;
   margin-right: 0;
 }
 
-header a:hover, header a:focus {
+header nav a:hover, header nav a:focus {
   opacity: 0.7;
+}
+
+.chyron p {
+  font-size: 1.125rem;
+  text-align: left;
+  color: #222222;
+  opacity: 0.85;
+}
+
+.chyron p time {
+  margin-left: 0;
+  opacity: 0.5;
+}
+
+.scroll-left {
+  height: 2rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-left p {
+  position: absolute;
+  width: 200%;
+  margin: 0;
+  text-align: right;
+  /* Starting position */
+  -webkit-transform: translateX(200%);
+          transform: translateX(200%);
+  /* Apply animation to this element */
+  -webkit-animation: scroll-left 20s linear infinite;
+          animation: scroll-left 20s linear infinite;
+}
+
+.scroll-left p:hover {
+  cursor: pointer;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+/* Move it (define the animation) */
+@-webkit-keyframes scroll-left {
+  0% {
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+@keyframes scroll-left {
+  0% {
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
 }
 
 article {
@@ -147,7 +199,7 @@ article p {
 }
 
 article .subtitle {
-  font-size: 0.5em;
+  font-size: 1.5rem;
   font-weight: 200;
   opacity: 0.7;
 }
@@ -208,14 +260,14 @@ footer {
 
 footer .copyright {
   text-align: center;
-  font-size: 1.25em;
+  font-size: 1.25rem;
   color: #f5f0e1;
   opacity: 0.7;
 }
 
 .fa {
   padding: 0.5em;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   line-height: 1.5em;
   width: 1.5em;
   text-align: center;

@@ -22,13 +22,13 @@ ul {
 //=====Type=====// 
 
 h1 {
-    font-size: 3em;
+    font-size: 3rem;
     color: $red-orange;
     font-weight: 700;
     text-transform: uppercase;
 }
 h2 {
-    font-size: 2.5em;
+    font-size: 2.5rem;
     color: $navy;
     font-weight: 400;
     text-transform: capitalize;
@@ -54,13 +54,12 @@ footer {grid-area: footer;}
 
 main {
     display: grid;
-    grid-template-columns: 2fr 3fr 2fr;
+    grid-template-columns: 2fr 4fr 2fr;
     grid-template-areas: 
-    ". section aside";
+    ". section .";
 }
 
 section {grid-area: section;}
-aside {grid-area: aside;}
 
 //=====Header=====// 
 header {
@@ -79,32 +78,79 @@ header {
     }
     nav {
         font-family: 'Oswald', sans-serif;
-        font-size: 2em;
+        font-size: 2rem;
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-    ul {
-        padding: 0;
-        margin: 0;
-    }
-    li > a {
-        width: 100%;
-        border-right: 1px solid $almond;
-        padding-right: 0.5em;
-        margin-right: 0.25em;
-    }
-    a:last-of-type {
-        border-right: none;
-        padding-right: 0;
-        margin-right: 0;
-    }
-    a:hover, a:focus {
-        opacity: 0.7;
-    }
+        a {
+            border-right: 1px solid $almond;
+            padding-right: 0.5em;
+            padding-left: 0.5em;
+        }
+        a:first-of-type {
+            padding-left: 0;
+        }
+        a:last-of-type {
+            border-right: none;
+            padding-right: 0;
+            margin-right: 0;
+        }
+        a:hover, a:focus {
+            opacity: 0.7;
+        }
+    }   
 }
 
 //=====Main=====// 
+
+.chyron {
+    p {
+        font-size: 1.125rem;
+        text-align: left;
+        color: $black;
+        opacity: 0.85;
+        time {
+            margin-left: 0;
+            opacity: 0.5;
+        }
+    }
+}
+
+.scroll-left {
+    height: 2rem; 
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    }
+    .scroll-left p {
+        position: absolute;
+        width: 200%;
+        //height: 100%;
+        margin: 0;
+        //line-height: 50px;
+        text-align: right;
+        /* Starting position */
+        transform:translateX(200%);
+        /* Apply animation to this element */ 
+        animation: scroll-left 20s linear infinite;
+        &:hover {
+            cursor: pointer;
+            animation-play-state: paused;
+        }
+        }
+        /* Move it (define the animation) */
+        @keyframes scroll-left {
+        0% { 
+        transform: translateX(50%); 
+        }
+        100% { 
+        transform: translateX(-100%); 
+        }
+
+    }
+
+
+
 
 article {
     border-top: 0.5px solid $red-orange;
@@ -115,7 +161,7 @@ article {
         color: $black;
     }
     .subtitle {
-        font-size: 0.5em;
+        font-size: 1.5rem;
         font-weight: 200;
         opacity: 0.7;
     }
@@ -164,7 +210,7 @@ footer {
     background-color: $red-orange;
     .copyright {
         text-align: center;
-        font-size: 1.25em;
+        font-size: 1.25rem;
         color: $almond;
         opacity: 0.7;
     }
@@ -173,7 +219,7 @@ footer {
 //=====Social Icons=====// 
 .fa {
     padding: 0.5em;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     line-height: 1.5em;
     width: 1.5em;
     text-align: center;
