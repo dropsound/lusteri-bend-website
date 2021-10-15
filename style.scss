@@ -218,3 +218,31 @@ footer {
     align-items: center;
 }
 
+.canceled {
+    color: $red-orange;
+    font-style: italic;
+    text-decoration: line-through;
+}
+
+//=====Pages Settings=====// 
+
+.concert-year-list {
+        padding-left: 0;
+}
+.custom-columns {
+    column-count: 3;
+    gap: 2rem;
+
+    @media only screen and (max-width: 899px) {
+          -webkit-column-count: 1;
+          -moz-column-count: 1;
+          column-count: 1;
+      }
+      @media only screen and (min-width: 900px) and (max-width: 1240px) {
+          -webkit-column-count: 2;
+          -moz-column-count: 2;
+          column-count: 2;
+      }
+}
+
+
