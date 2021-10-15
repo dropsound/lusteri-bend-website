@@ -2,10 +2,15 @@
 
 
 //=====General======// 
-
+* {
+    box-sizing: border-box;
+}
 html {
     font-size: 14px;
     font-family: 'Oswald', sans-serif;
+    /* @media (max-width: 650px) {
+        font-size: 80%;
+    } */
 }
 body {
     min-height: 100vh;
@@ -34,55 +39,28 @@ h2 {
     text-transform: capitalize;
 }
 
-//=====Grid=====// 
-
-body {
-    display: grid;
-    //grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 15em auto 12em;
-    grid-template-areas:
-    "header"
-    "main"
-    "footer"
-}
-
-header {grid-area: header;}     
-main {grid-area: main;}
-footer {grid-area: footer;}
-
-//=====Main-Grid=====// 
-
-main {
-    display: grid;
-    grid-template-columns: 2fr 4fr 2fr;
-    grid-template-areas: 
-    ". section .";
-}
-
-section {grid-area: section;}
-
 //=====Header=====// 
 header {
     background-color: $navy;
-    padding: 4em 0 1em 0;
-    max-height: 10em;    
-    img {
+    padding: 4rem 2rem 1rem 2rem;   
+    .logo-link {
+        img {
         max-width: 100%;
         height: auto;
-        display: flex;
+        display: block;
         margin-right: auto;
         margin-left: auto;
-    }
-    a {
-        color: $almond;
+        }
     }
     nav {
         font-family: 'Oswald', sans-serif;
         font-size: 2rem;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         a {
+            color: $almond;
             border-right: 1px solid $almond;
             padding-right: 0.5em;
             padding-left: 0.5em;
@@ -102,6 +80,13 @@ header {
 }
 
 //=====Main=====// 
+
+main {
+    padding: 0 5% 0 5%;
+    @media (min-width: 650px) {
+        padding: 0 20% 0 20%;
+    }
+}
 
 .chyron {
     p {
@@ -125,20 +110,15 @@ header {
     .scroll-left p {
         position: absolute;
         width: 200%;
-        //height: 100%;
         margin: 0;
-        //line-height: 50px;
         text-align: right;
-        /* Starting position */
         transform:translateX(200%);
-        /* Apply animation to this element */ 
         animation: scroll-left 20s linear infinite;
         &:hover {
             cursor: pointer;
             animation-play-state: paused;
+            }
         }
-        }
-        /* Move it (define the animation) */
         @keyframes scroll-left {
         0% { 
         transform: translateX(50%); 
@@ -164,15 +144,14 @@ article {
         font-size: 1.5rem;
         font-weight: 200;
         opacity: 0.7;
+        display: block;
     }
     .card {
-        display: flex;
-        align-content: space-between;
-        flex-wrap: nowrap;
         padding: 1em 0 1em 0;
+        columns: 2 300px;
         gap: 1em;
         img {
-            max-width: 22em;
+            max-width: 100%;
             height: auto;
         }
         p {
@@ -180,10 +159,9 @@ article {
             justify-content: center;
         }
         iframe {
-            max-width: 24em;
+            width: 100%;
+            height: 25rem;
         }
-        @media (max-width: 650px) {
-            display: block;
             .subtitle {
                 display: block;
             }
@@ -191,23 +169,22 @@ article {
                 margin-top: 1em;
             }
         }
-    }
+        .only-text-card {
+            columns: 2 300px;
+            gap: 2em;
+        }
+    
     &:last-of-type {
         border-bottom: 0.5px solid $red-orange;
         margin-bottom: 10em;
     }
 }
 
-//=====Aside=====// 
-
-aside {
-    background-color: $red-orange;
-    color: $almond;
-}
 
 //=====Footer=====// 
 footer {
     background-color: $red-orange;
+    padding-bottom: 5rem;
     .copyright {
         text-align: center;
         font-size: 1.25rem;
@@ -218,16 +195,15 @@ footer {
 
 //=====Social Icons=====// 
 .fa {
-    padding: 0.5em;
     font-size: 1.5rem;
-    line-height: 1.5em;
-    width: 1.5em;
+    padding: 0.5rem;
+    line-height: 1.5rem;
+    width: 3rem;
     text-align: center;
     text-decoration: none;
     margin: 1em 0.25em;
     background-color: $almond;
     color: $red-orange;
-    border-radius: 50%;
     &:hover {
         opacity: 0.7;
     }
@@ -237,6 +213,7 @@ footer {
 
 .center {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }

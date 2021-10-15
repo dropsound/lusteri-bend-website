@@ -1,8 +1,16 @@
 /*-----Main Color Scheme-----*/
 /*-----Secondary Color Scheme-----*/
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 html {
   font-size: 14px;
   font-family: 'Oswald', sans-serif;
+  /* @media (max-width: 650px) {
+        font-size: 80%;
+    } */
 }
 
 body {
@@ -33,64 +41,17 @@ h2 {
   text-transform: capitalize;
 }
 
-body {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 15em auto 12em;
-      grid-template-rows: 15em auto 12em;
-      grid-template-areas: "header" "main" "footer";
-}
-
-header {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: header;
-}
-
-main {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: main;
-}
-
-footer {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  grid-area: footer;
-}
-
-main {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 2fr 4fr 2fr;
-      grid-template-columns: 2fr 4fr 2fr;
-      grid-template-areas: ". section .";
-}
-
-section {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: section;
-}
-
 header {
   background-color: #1e3d59;
-  padding: 4em 0 1em 0;
-  max-height: 10em;
+  padding: 4rem 2rem 1rem 2rem;
 }
 
-header img {
+header .logo-link img {
   max-width: 100%;
   height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   margin-right: auto;
   margin-left: auto;
-}
-
-header a {
-  color: #f5f0e1;
 }
 
 header nav {
@@ -99,6 +60,8 @@ header nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -108,6 +71,7 @@ header nav {
 }
 
 header nav a {
+  color: #f5f0e1;
   border-right: 1px solid #f5f0e1;
   padding-right: 0.5em;
   padding-left: 0.5em;
@@ -125,6 +89,16 @@ header nav a:last-of-type {
 
 header nav a:hover, header nav a:focus {
   opacity: 0.7;
+}
+
+main {
+  padding: 0 5% 0 5%;
+}
+
+@media (min-width: 650px) {
+  main {
+    padding: 0 20% 0 20%;
+  }
 }
 
 .chyron p {
@@ -151,10 +125,8 @@ header nav a:hover, header nav a:focus {
   width: 200%;
   margin: 0;
   text-align: right;
-  /* Starting position */
   -webkit-transform: translateX(200%);
           transform: translateX(200%);
-  /* Apply animation to this element */
   -webkit-animation: scroll-left 20s linear infinite;
           animation: scroll-left 20s linear infinite;
 }
@@ -165,7 +137,6 @@ header nav a:hover, header nav a:focus {
           animation-play-state: paused;
 }
 
-/* Move it (define the animation) */
 @-webkit-keyframes scroll-left {
   0% {
     -webkit-transform: translateX(50%);
@@ -176,6 +147,7 @@ header nav a:hover, header nav a:focus {
             transform: translateX(-100%);
   }
 }
+
 @keyframes scroll-left {
   0% {
     -webkit-transform: translateX(50%);
@@ -202,22 +174,18 @@ article .subtitle {
   font-size: 1.5rem;
   font-weight: 200;
   opacity: 0.7;
+  display: block;
 }
 
 article .card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
   padding: 1em 0 1em 0;
+  -webkit-columns: 2 300px;
+          columns: 2 300px;
   gap: 1em;
 }
 
 article .card img {
-  max-width: 22em;
+  max-width: 100%;
   height: auto;
 }
 
@@ -229,19 +197,22 @@ article .card p {
 }
 
 article .card iframe {
-  max-width: 24em;
+  width: 100%;
+  height: 25rem;
 }
 
-@media (max-width: 650px) {
-  article .card {
-    display: block;
-  }
-  article .card .subtitle {
-    display: block;
-  }
-  article .card p {
-    margin-top: 1em;
-  }
+article .card .subtitle {
+  display: block;
+}
+
+article .card p {
+  margin-top: 1em;
+}
+
+article .only-text-card {
+  -webkit-columns: 2 300px;
+          columns: 2 300px;
+  gap: 2em;
 }
 
 article:last-of-type {
@@ -249,13 +220,9 @@ article:last-of-type {
   margin-bottom: 10em;
 }
 
-aside {
-  background-color: #ff6e40;
-  color: #f5f0e1;
-}
-
 footer {
   background-color: #ff6e40;
+  padding-bottom: 5rem;
 }
 
 footer .copyright {
@@ -266,16 +233,15 @@ footer .copyright {
 }
 
 .fa {
-  padding: 0.5em;
   font-size: 1.5rem;
-  line-height: 1.5em;
-  width: 1.5em;
+  padding: 0.5rem;
+  line-height: 1.5rem;
+  width: 3rem;
   text-align: center;
   text-decoration: none;
   margin: 1em 0.25em;
   background-color: #f5f0e1;
   color: #ff6e40;
-  border-radius: 50%;
 }
 
 .fa:hover {
@@ -286,6 +252,8 @@ footer .copyright {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
