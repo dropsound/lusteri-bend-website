@@ -265,3 +265,130 @@ footer {
     }
 }
 
+.bio {
+    column-count: 2;
+    gap: 4rem;
+}
+@media only screen and (max-width: 899px) {
+    .bio {
+    column-count: 1;
+    gap: 2rem;
+    }
+}
+
+.gallery {
+	display: flex;
+	padding: 2px;
+	transition: .3s;
+	
+	&:hover &__image {
+		filter: grayscale(1);
+	}
+	
+	&__column {
+		display: flex;
+		flex-direction: column;
+		width: 25%;
+	}
+	
+	&__link {
+		margin: 2px;
+		overflow: hidden;
+		
+		&:hover {
+			.gallery__image {
+				filter: grayscale(0);
+			}
+			
+			.gallery__caption {
+				opacity: 1;
+			}
+		}
+	}
+	
+	&__thumb {
+		position: relative;
+        margin: 0;
+	}
+	
+	&__image {
+		display: block;
+		width: 100%;
+		transition: .3s;
+		
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+	
+	&__caption {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		padding: 25px 15px 15px;
+		width: 100%;
+		font-family: 'Raleway', sans-serif;
+		font-size: 16px;
+		color: white;
+		opacity: 0;
+		background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255 ,255 , 0) 100%);
+		transition: .3s;
+	}
+}
+
+#gallery {
+    line-height:0;
+    -webkit-column-count:5; /* split it into 5 columns */
+    -webkit-column-gap:5px; /* give it a 5px gap between columns */
+    -moz-column-count:5;
+    -moz-column-gap:5px;
+    column-count:5;
+    column-gap:5px;
+    padding: 2rem 0 2rem 0;
+ }
+
+ #gallery img {
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom:5px; /* to match column gap */
+    filter: grayscale(100%);
+    transition: filter 1s;
+ }
+
+ #gallery img:hover {
+    filter:none;
+    cursor: pointer;
+ }
+
+ @media (max-width: 1200px) {
+    #gallery {
+     -moz-column-count:    4;
+     -webkit-column-count: 4;
+     column-count:         4;
+    }
+ }
+
+ @media (max-width: 1000px) {
+    #gallery {
+     -moz-column-count:    3;
+     -webkit-column-count: 3;
+     column-count:         3;
+    }
+ }
+
+ @media (max-width: 800px) {
+    #gallery {
+     -moz-column-count:    2;
+     -webkit-column-count: 2;
+     column-count:         2;
+    }
+ }
+
+ @media (max-width: 650px) {
+    #gallery {
+     -moz-column-count:    1;
+     -webkit-column-count: 1;
+     column-count:         1;
+    }
+ }
+
