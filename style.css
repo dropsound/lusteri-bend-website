@@ -291,4 +291,23 @@ footer .copyright {
     column-count: 2;
   }
 }
+
+.official-video .video-list {
+  -webkit-column-count: 2;
+          column-count: 2;
+  gap: 2rem;
+}
+
+.official-video iframe {
+  width: calc(560px - 50%);
+  height: calc(315px - 50%);
+  padding-bottom: 2rem;
+}
+
+@media only screen and (max-width: 899px) {
+  iframe {
+    -webkit-column-count: 1;
+    column-count: 1;
+  }
+}
 /*# sourceMappingURL=style.css.map */

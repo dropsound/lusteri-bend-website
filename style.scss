@@ -245,4 +245,23 @@ footer {
       }
 }
 
+.official-video {
+    .video-list {
+        column-count: 2;
+        gap: 2rem;
+    }
+    iframe {
+        width: calc(560px - 50%);
+        height: calc(315px - 50%);
+        padding-bottom: 2rem;
+    }
+}
+
+@media only screen and (max-width: 899px) {
+    iframe {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    }
+}
 
