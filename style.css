@@ -415,8 +415,6 @@ footer .copyright {
   height: auto !important;
   margin-bottom: 5px;
   /* to match column gap */
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
   -webkit-transition: -webkit-filter 1s;
   transition: -webkit-filter 1s;
   transition: filter 1s;
@@ -424,36 +422,38 @@ footer .copyright {
 }
 
 #gallery img:hover {
-  -webkit-filter: none;
-          filter: none;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
   cursor: pointer;
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
   #gallery {
     -webkit-column-count: 4;
     column-count: 4;
   }
 }
 
-@media (max-width: 1000px) {
-  #gallery {
-    -webkit-column-count: 3;
-    column-count: 3;
-  }
-}
-
-@media (max-width: 800px) {
+@media (min-width: 650px) and (max-width: 1199px) {
   #gallery {
     -webkit-column-count: 2;
     column-count: 2;
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 649px) {
   #gallery {
     -webkit-column-count: 1;
     column-count: 1;
   }
+}
+
+.contact a {
+  font-size: 1.5rem;
+}
+
+.contact a span {
+  font-family: 'Oswald', sans-serif;
+  margin-left: 0.5rem;
 }
 /*# sourceMappingURL=style.css.map */

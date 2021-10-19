@@ -224,7 +224,9 @@ footer {
     text-decoration: line-through;
 }
 
+//========================// 
 //=====Pages Settings=====// 
+//========================// 
 
 .concert-year-list {
         padding-left: 0;
@@ -275,6 +277,8 @@ footer {
     gap: 2rem;
     }
 }
+
+//=====Photos page=====// 
 
 .gallery {
 	display: flex;
@@ -351,16 +355,15 @@ footer {
     width: 100% !important;
     height: auto !important;
     margin-bottom:5px; /* to match column gap */
-    filter: grayscale(100%);
     transition: filter 1s;
  }
 
  #gallery img:hover {
-    filter:none;
+    filter: grayscale(100%);
     cursor: pointer;
  }
 
- @media (max-width: 1200px) {
+ @media (min-width: 1200px) {
     #gallery {
      -moz-column-count:    4;
      -webkit-column-count: 4;
@@ -368,15 +371,7 @@ footer {
     }
  }
 
- @media (max-width: 1000px) {
-    #gallery {
-     -moz-column-count:    3;
-     -webkit-column-count: 3;
-     column-count:         3;
-    }
- }
-
- @media (max-width: 800px) {
+ @media (min-width: 650px) and (max-width: 1199px) {
     #gallery {
      -moz-column-count:    2;
      -webkit-column-count: 2;
@@ -384,7 +379,7 @@ footer {
     }
  }
 
- @media (max-width: 650px) {
+ @media (max-width: 649px) {
     #gallery {
      -moz-column-count:    1;
      -webkit-column-count: 1;
@@ -392,3 +387,15 @@ footer {
     }
  }
 
+ //=====Contact page=====// 
+
+ .contact {
+     a {
+         font-size: 1.5rem;
+         span {
+             font-family: 'Oswald', sans-serif;
+             margin-left: 0.5rem;
+         }
+
+     }
+ }
