@@ -20,6 +20,15 @@ body {
 a {
     text-decoration: none;
 }
+a {
+    font-size: 1.5rem;
+    span {
+        font-family: 'Oswald', sans-serif;
+        margin-left: 0.5rem;
+    }
+
+}
+
 ul {
     list-style-type: none;
 }
@@ -41,7 +50,7 @@ h2 {
 
 //=====Header=====// 
 header {
-    background-color: $navy;
+    background-color: $black;
     padding: 4rem 2rem 1rem 2rem;   
     .logo-link {
         img {
@@ -134,6 +143,8 @@ main {
 
 article {
     border-top: 0.5px solid $red-orange;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     p {
         font-family: 'Montserrat', sans-serif;
         font-weight: 100;
@@ -177,6 +188,9 @@ article {
     &:last-of-type {
         border-bottom: 0.5px solid $red-orange;
         margin-bottom: 10em;
+    }
+    &.bio {
+        border-bottom: 0.5px solid $red-orange;
     }
 }
 
@@ -247,17 +261,7 @@ footer {
       }
 }
 
-.official-video {
-    .video-list {
-        column-count: 2;
-        gap: 2rem;
-    }
-    iframe {
-        width: calc(560px - 50%);
-        height: calc(315px - 50%);
-        padding-bottom: 2rem;
-    }
-}
+
 
 @media only screen and (max-width: 899px) {
     iframe {
@@ -279,7 +283,9 @@ footer {
 }
 
 //=====Photos page=====// 
-
+.photo {
+  background-color: $black;
+}
 .gallery {
 	display: flex;
 	padding: 2px;
@@ -399,3 +405,90 @@ footer {
 
      }
  }
+
+ //=====BIO page=====// 
+
+ .bio-image {
+     img {
+        width: 100%;
+        height: auto; 
+        object-fit: cover; 
+    }
+    a {
+        width: 100%;
+    }
+ }
+
+ //=====Video page=====// 
+.video {
+  background-color: $black;
+}
+ .official-video {
+    .video-list {
+        column-count: 1;
+        gap: 2rem;
+        padding: 0;
+    }
+    iframe {
+        width: 100%;
+        height: 40rem;
+        padding-bottom: 2rem;
+    }
+    @media (max-width: 1199px) {
+        iframe {
+            height: 20rem;
+        }
+    }
+}
+
+.unofficial-video {
+    .video-list {
+        column-count: 6;
+        gap: 1rem;
+        padding: 0;
+    }
+    iframe {
+        width: 100%;
+        height: 40rem;
+        padding-bottom: 2rem;
+    }
+    @media (min-width: 650px) and (max-width: 1199px) {
+        .video-list {
+            column-count: 3;
+        }
+        iframe {
+            height: 20rem;
+        }
+    }
+    @media (max-width: 649px) {
+        .video-list {
+            column-count: 1;
+        }
+        iframe {
+            height: 20rem;
+        }
+    } 
+}
+
+//=====AUDIO page=====// 
+
+.audio {
+  background-color: $black;
+  .audio-player {
+    column-count: 2;
+    gap: 2rem;
+    img {
+      width: 100%;
+      height: auto;
+      -webkit-box-shadow: 2px 3px 8px 4px rgba(0,0,0,0.26); 
+      box-shadow: 2px 3px 8px 4px rgba(0,0,0,0.26);
+      }
+    }
+  }
+  @media (max-width: 649px) {
+    .audio {
+      .audio-player {
+        column-count: 1;
+      }
+    }
+  }
