@@ -6,7 +6,7 @@
     "author": "5t3ph",
     "scripts": {
       "build:sass": "sass  --no-source-map src/sass:public/css",
-      "copy:assets": "copyfiles -u 1 ./src/assets/**/**/* public",
+      "copy:assets": "copyfiles -u 1 ./src/assets/**/* public",
       "copy:html": "copyfiles -u 1 ./src/*.html public",
       "copy:pages": "copyfiles -u 1 ./src/pages/*.html public",
       "copy": "npm-run-all --parallel copy:*",
