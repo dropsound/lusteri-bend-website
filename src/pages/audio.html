@@ -86,9 +86,12 @@
         </div>
         
         <div class="copyright">
-            <small>&copy; 2021 | dropsound</small>
+            <small>&copy; 2021 - <span id="currentYear"></span> | dropsound</small>
         </div>
     </footer>
+    <script>
+      document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+  </script>
     <script src="../assets/js/audio-player.js"></script>
 </body>
 </html>
