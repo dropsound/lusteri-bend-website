@@ -1,9 +1,9 @@
 {
-    "name": "project",
-    "version": "0.1.0",
+    "name": "lusteri",
+    "version": "1.0.0",
     "description": "SASS compile|autoprefix|minimize and live-reload dev server using Browsersync for static HTML",
     "main": "public/index.html",
-    "author": "5t3ph",
+    "author": "dropSound",
     "scripts": {
       "build:sass": "sass  --no-source-map src/sass:public/css",
       "copy:assets": "copyfiles -u 1 ./src/assets/**/**/* public",
