@@ -1,9 +1,11 @@
 {
     "name": "lusteri",
     "version": "1.0.0",
-    "description": "SASS compile|autoprefix|minimize and live-reload dev server using Browsersync for static HTML",
+    "description": "Web site for music band called Lusteri",
+    "homepage": "https://lusteri.rs/",
+    "keywords": ["music", "band", "lusteri", "srbija", "guitar", "drums", "saxophone", "rocknroll" ],
     "main": "public/index.html",
-    "author": "dropSound",
+    "author": "dropSound <dropsoundproduction@gmail.com>",
     "scripts": {
       "build:sass": "sass  --no-source-map src/sass:public/css",
       "copy:assets": "copyfiles -u 1 ./src/assets/**/**/* public",
