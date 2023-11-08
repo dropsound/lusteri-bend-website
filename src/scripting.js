@@ -1,4 +1,3 @@
-document.getElementById("currentYear").innerHTML = new Date().getFullYear();
 
 
   function readGigs(file) { 
@@ -15,3 +14,13 @@ document.getElementById("currentYear").innerHTML = new Date().getFullYear();
     rawFile.send(null); 
   } 
   readGigs("../gigsBase.html");
+
+  const footer = document.querySelector('.footer')
+  fetch('../footer.html')
+  .then(res => res.text())
+  .then(data => {
+    footer.innerHTML = data
+    const parser = new DOMParser()
+    const doc = parser.parseFromString(data, 'text/html')
+    eval(doc.querySelector('script').textContent)
+  })
