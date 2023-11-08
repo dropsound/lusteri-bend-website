@@ -46,6 +46,7 @@ h2 {
     color: $navy;
     font-weight: 400;
     text-transform: capitalize;
+    margin-top: 0;
 }
 
 //=====Header=====// 
@@ -191,6 +192,14 @@ article {
     }
     &.bio {
         border-bottom: 0.5px solid $red-orange;
+    }
+    .bandcamp-link {
+        color: $navy;
+        font-size: 1.5rem;
+        a{
+            color: $mango;
+            font-size: 1.5rem;
+        }
     }
 }
 
