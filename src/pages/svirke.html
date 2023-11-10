@@ -36,6 +36,13 @@
     </main>
     <footer class="footer"></footer>
 
-    <script type="text/javascript" src="../scripting.js"></script>
+    <script type="text/javascript">
+          const gigs = document.querySelector('.gigs')
+            fetch('../gigsBase.html')
+            .then(res => res.text())
+            .then(gigsData => {
+                gigs.innerHTML = gigsData
+            })
+    </script>
 </body>
 </html>

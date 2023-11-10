@@ -1,11 +1,6 @@
-  const gigs = document.querySelector('.gigs')
-  fetch('../gigsBase.html')
-  .then(res => res.text())
-  .then(gigsData => {
-    gigs.innerHTML = gigsData
-  })
+//Footer Template call//
 
-  const footer = document.querySelector('.footer')
+const footer = document.querySelector('.footer')
   fetch('../footer.html')
   .then(res => res.text())
   .then(data => {
@@ -14,3 +9,5 @@
     const doc = parser.parseFromString(data, 'text/html')
     eval(doc.querySelector('script').textContent)
   })
+
+  //------------------//
