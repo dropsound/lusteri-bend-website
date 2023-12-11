@@ -96,3 +96,10 @@ function gridGallery (options) {
   if (options.selector) selector = document.querySelector(options.selector);
   if (options.darkMode) selector.setAttribute("data-theme", "dark");
 }
+
+//-----------------------------------------------//
+
+//-----Band years------//
+
+var years = Array.from(Array(new Date().getFullYear() - 2008), (_, i) => (i + 2009).toString())
+console.log(years)

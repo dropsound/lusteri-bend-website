@@ -531,3 +531,32 @@ footer {
             font-size: 1.5rem;
         }
     }
+
+//-----Band members year ranges-----//
+
+.band-members {
+    .band-members-table {
+        padding: 0;
+        width: 100%;
+        border-spacing: 0;
+        .band-members-table-item {
+            padding: 0;
+            p {
+                margin: 0;
+            }
+            .filled-year {
+                background: $mango;
+            }
+        }
+        thead, tbody {
+            td {
+                border-left: 1px solid $ochre;
+                border-bottom: 1px solid $ochre;
+                &:first-of-type {
+                    border-left: none;
+                }
+            }
+        }
+
+    }
+}
