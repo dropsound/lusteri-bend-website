@@ -555,6 +555,9 @@ footer {
                 &:first-of-type {
                     border-left: none;
                 }
+                p {
+                    display: inline;
+                }
             }
         }
 

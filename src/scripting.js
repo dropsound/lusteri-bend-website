@@ -101,5 +101,35 @@ function gridGallery (options) {
 
 //-----Band years------//
 
-var years = Array.from(Array(new Date().getFullYear() - 2008), (_, i) => (i + 2009).toString())
-console.log(years)
+/* var years = Array.from(Array(new Date().getFullYear() - 2008), (_, i) => (i + 2009).toString())
+console.log(years)*/
+
+const currentYear = new Date().getFullYear();
+const startYear = 2009;
+const numYears = currentYear - startYear;
+const years = Array.from(Array(numYears), (_, i) => (startYear + i).toString());
+ 
+const setElement = (elementId, values) => {
+  const element = document.getElementById(elementId);
+  if (element) {
+    element.innerHTML = Array.isArray(values) ? values.join(' ') : values;
+  }
+};
+ 
+ 
+// Create and insert small element after yearTwo
+const small = document.createElement('small');
+document.getElementById('yearTwo').insertAdjacentElement('afterend', small);
+
+setElement('yearOne', years[0]);
+setElement('yearTwo', years[2]);
+setElement('yearThree', years[8]);
+setElement('yearFour', years[12]);
+ 
+setElement('yearsOne', [years[1]]);
+setElement('yearsTwo', [years[3], years[4], years[5], years[6], years[7]]);
+setElement('yearsThree', [years[9], years[10], years[11]]);
+setElement('yearsFour', [years[13], years[14]]);
+setElement('currentYear', currentYear);
+
+
