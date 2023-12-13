@@ -101,35 +101,95 @@ function gridGallery (options) {
 
 //-----Band years------//
 
-/* var years = Array.from(Array(new Date().getFullYear() - 2008), (_, i) => (i + 2009).toString())
-console.log(years)*/
+document.addEventListener('DOMContentLoaded', function() {
+  const currentYear = new Date().getFullYear();
+  const startYear = 2009;
+  const numYears = currentYear + 1 - startYear;
+  const years = Array.from(Array(numYears), (_, i) => (startYear + i).toString());
 
-const currentYear = new Date().getFullYear();
-const startYear = 2009;
-const numYears = currentYear - startYear;
-const years = Array.from(Array(numYears), (_, i) => (startYear + i).toString());
- 
-const setElement = (elementId, values) => {
-  const element = document.getElementById(elementId);
-  if (element) {
-    element.innerHTML = Array.isArray(values) ? values.join(' ') : values;
+  let futureYearsCount = 1; // Set this to the number of future years you want to add
+
+  // Check if futureYearsCount is not null and a valid number
+  if (futureYearsCount !== null && !isNaN(futureYearsCount) && futureYearsCount > 0) {
+    const futureYears = Array.from(Array(futureYearsCount), (_, i) => (currentYear + i + 1).toString());
+    years.push(...futureYears);
   }
-};
- 
- 
-// Create and insert small element after yearTwo
-const small = document.createElement('small');
-document.getElementById('yearTwo').insertAdjacentElement('afterend', small);
 
-setElement('yearOne', years[0]);
-setElement('yearTwo', years[2]);
-setElement('yearThree', years[8]);
-setElement('yearFour', years[12]);
- 
-setElement('yearsOne', [years[1]]);
-setElement('yearsTwo', [years[3], years[4], years[5], years[6], years[7]]);
-setElement('yearsThree', [years[9], years[10], years[11]]);
-setElement('yearsFour', [years[13], years[14]]);
-setElement('currentYear', currentYear);
+ const yearHeader = document.getElementById('yearHeader');
+
+ function updateYears() {
+   
+  let indicesToSelect = [0, 2, 8, 12]; // elements to extract from 'years' array
+  let indicesOne = [3, 4, 5, 6, 7];
+  let indicesTwo = [9, 10, 11];
+  let indicesThree = [13, 14]; // add this code if you want next year to be displayed - 'years.length - 1'
+  
+  let breakPointYears = indicesToSelect.map(index => years[index]);
+  let otherYearsOne = indicesOne.map(index => years[index]);
+  let otherYearsTwo = indicesTwo.map(index => years[index]);
+  let otherYearsThree = indicesThree.map(index => years[index]);
+  
+  // Add new years if needed (if it's a new year)
+  if (!years.includes(currentYear.toString())) {
+    years.push(currentYear.toString());
+    indicesThree.push(years - 1); // Add the new index to indicesThree
+  }
+
+  // Clear previous content in yearHeader
+  yearHeader.innerHTML = '';
+
+  // Add an empty td at the beginning
+  let emptyTd = document.createElement('td');
+  yearHeader.appendChild(emptyTd);
+
+  breakPointYears.forEach(function(year, index) {
+    let mainSections = document.createElement('td');
+    mainSections.textContent = year;
+    mainSections.id = year;
+
+    if (index === 0) {
+      const smallElement = document.createElement('small');
+      smallElement.textContent = years[1];
+      smallElement.id = years[1];
+      mainSections.appendChild(smallElement);
+    }
+
+    if (index === 1) {
+      otherYearsOne.forEach(function(year) {
+        const smallYearsOne = document.createElement('small');
+        smallYearsOne.textContent = year;
+        smallYearsOne.id = year;
+        mainSections.appendChild(smallYearsOne);
+      });
+    }
+
+    if (index === 2) {
+      otherYearsTwo.forEach(function(year) {
+        const smallYearsTwo = document.createElement('small');
+        smallYearsTwo.textContent = year;
+        smallYearsTwo.id = year;
+        mainSections.appendChild(smallYearsTwo);
+      });
+    }
+
+    if (index === 3) {
+      otherYearsThree.forEach(function(year) {
+        const smallYearsThree = document.createElement('small');
+        smallYearsThree.textContent = year;
+        smallYearsThree.id = year;
+        mainSections.appendChild(smallYearsThree);
+      });
+    }
+
+    yearHeader.appendChild(mainSections);
+  });
+}
+
+  // Initial call to populate the years when the DOM is loaded
+  updateYears();
+
+  // Update years every day (you can adjust the interval as needed)
+  setInterval(updateYears, 86400000); // 86,400,000 milliseconds = 1 day
+});
 
 
