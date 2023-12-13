@@ -187,11 +187,3 @@ function gridGallery (options) {
   });
 }
 
-  // Initial call to populate the years when the DOM is loaded
-  updateYears();
-
-  // Update years every day (you can adjust the interval as needed)
-  setInterval(updateYears, 86400000); // 86,400,000 milliseconds = 1 day
-
-
-
