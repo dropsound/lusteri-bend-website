@@ -144,8 +144,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   breakPointYears.forEach(function(year, index) {
     let mainSections = document.createElement('td');
-    mainSections.textContent = year;
-    mainSections.id = year;
+    let mainParagraph = document.createElement('p');
+    mainParagraph.textContent = year;
+    mainParagraph.id = year;
+    mainSections.appendChild(mainParagraph);
 
     if (index === 0) {
       const smallElement = document.createElement('small');

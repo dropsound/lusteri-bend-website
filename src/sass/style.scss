@@ -557,12 +557,18 @@ footer {
                 }
                 p {
                     display: inline;
+                    margin: 0;
                 }
                 small {
                     padding-inline: 0.25rem;
                 }
             }
         }
-
+        thead td *{
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+        }
     }
 }
