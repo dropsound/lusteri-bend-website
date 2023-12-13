@@ -101,7 +101,7 @@ function gridGallery (options) {
 
 //-----Band years------//
 
-document.addEventListener('DOMContentLoaded', function() {
+
   const currentYear = new Date().getFullYear();
   const startYear = 2009;
   const numYears = currentYear + 1 - startYear;
@@ -192,6 +192,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Update years every day (you can adjust the interval as needed)
   setInterval(updateYears, 86400000); // 86,400,000 milliseconds = 1 day
-});
+
 
 
