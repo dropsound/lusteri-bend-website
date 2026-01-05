@@ -186,4 +186,3 @@ function gridGallery (options) {
     yearHeader.appendChild(mainSections);
   });
 }
-

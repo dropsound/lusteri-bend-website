@@ -29,10 +29,36 @@
         </nav>
     </header>
     <main>
-        <section>
+        <section class="merchWrapper">
             <h1>prodavnica</h1>
 
+            <div class="merchShop">
+                    <div class="merchCard" tabindex="0" role="button"
+     aria-label="Open product image: Gavran v.25">
+                        <div class="merchImage">
+                            <img src="../assets/images/merch/LusteriMajica2025.png" alt="Lusteri majica designed 2025">
+                        </div>
+                        <div class="merchType">Majica</div>
+                        <div class="merchName strong">Gavran v.25</div>
+                        <div class="merchPrice">1200din + troškovi dostave</div>
+                        <div class="merchState on">Na stanju</div>
+                        <div class="merchOrder">Naručite putem društvenih mreža ili mejla</div>
+                    </div>
+                    <div class="merchCard" tabindex="0" role="button"
+     aria-label="Open product image: Nema kad v.20"
+                        data-images="../assets/images/merch/321.png,../assets/images/merch/2020 back.png">
+                        <div class="merchImage">
+                            <img src="../assets/images/merch/321.png" alt="Lusteri majica designed 2020">
+                        </div>
+                        <div class="merchType">Majica</div>
+                        <div class="merchName strong">Nema kad v.20</div>
+                        <div class="merchPrice">1200din + troškovi dostave</div>
+                        <div class="merchState off">Rasprodato</div>
+                        <div class="merchOrder">Naručite putem društvenih mreža ili mejla</div>
+                        
+                    </div>
 
+            </div>
                 
             
         </section>
@@ -43,4 +69,99 @@
 
     <script type="text/javascript" src="../scripting.js"></script>
 </body>
+
+<script>
+(() => {
+  const cards = document.querySelectorAll('.merchCard');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'imageZoomOverlay';
+  document.body.appendChild(overlay);
+
+  let images = [];
+  let index = 0;
+  let lastFocusedCard = null;
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => openFromCard(card));
+
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openFromCard(card);
+      }
+    });
+  });
+
+  function openFromCard(card) {
+    lastFocusedCard = card;
+
+    const img = card.querySelector('.merchImage img');
+    images = card.dataset.images
+      ? card.dataset.images.split(',').map(i => i.trim())
+      : [img.src];
+
+    index = 0;
+    render();
+  }
+
+  function render() {
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Product image preview');
+
+    overlay.innerHTML = `
+      <div class="zoomWrapper" tabindex="0">
+        ${images.length > 1 ? '<div class="zoomNav prev" role="button" tabindex="0" aria-label="Previous image">‹</div>' : ''}
+        <img class="zoomImage" src="${images[index]}" alt="" />
+        ${images.length > 1 ? '<div class="zoomNav next" role="button" tabindex="0" aria-label="Next image">›</div>' : ''}
+        ${images.length > 1 ? `<div class="zoomCounter">${index + 1} / ${images.length}</div>` : ''}
+      </div>
+    `;
+
+    overlay.classList.add('active');
+    overlay.querySelector('.zoomWrapper').focus();
+
+    overlay.querySelector('.prev')?.addEventListener('click', e => {
+      e.stopPropagation();
+      index = (index - 1 + images.length) % images.length;
+      render();
+    });
+
+    overlay.querySelector('.next')?.addEventListener('click', e => {
+      e.stopPropagation();
+      index = (index + 1) % images.length;
+      render();
+    });
+  }
+
+overlay.addEventListener('click', e => {
+  if (e.target === overlay) {
+    closeOverlay();
+  }
+});
+
+  document.addEventListener('keydown', e => {
+    if (!overlay.classList.contains('active')) return;
+
+    if (e.key === 'Escape') closeOverlay();
+    if (e.key === 'ArrowRight' && images.length > 1) {
+      index = (index + 1) % images.length;
+      render();
+    }
+    if (e.key === 'ArrowLeft' && images.length > 1) {
+      index = (index - 1 + images.length) % images.length;
+      render();
+    }
+  });
+
+  function closeOverlay() {
+    overlay.classList.remove('active');
+    overlay.innerHTML = '';
+    lastFocusedCard?.focus();
+  }
+})();
+</script>
+
+
 </html>
