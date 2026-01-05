@@ -792,4 +792,21 @@ footer {
   border-radius: 12px;
 }
 
+.orderBtn {
+  display: inline-block;
+  background-color: #f99d3e;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-right: 0.5rem;
+  transition: background-color 0.2s;
+
+  &:hover,
+  &:focus-visible {
+    background-color: #d87e2a;
+    outline: none;
+  }
+}
 

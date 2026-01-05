@@ -42,7 +42,15 @@
                         <div class="merchName strong">Gavran v.25</div>
                         <div class="merchPrice">1200din + troškovi dostave</div>
                         <div class="merchState on">Na stanju</div>
-                        <div class="merchOrder">Naručite putem društvenih mreža ili mejla</div>
+                        <div class="merchOrder">Naručite porukom putem društvenih mreža</div>
+                        <div class="merchOrder">
+                            <a href="https://www.instagram.com/lusteri" class="orderBtn" target="_blank" rel="noopener" aria-label="Naruči putem Instagrama">
+                                Instagram
+                            </a>
+                            <a href="https://www.facebook.com/lusteri" class="orderBtn" target="_blank" rel="noopener" aria-label="Naruči putem Facebook-a">
+                                Facebook
+                            </a>
+                        </div>
                     </div>
                     <div class="merchCard" tabindex="0" role="button"
      aria-label="Open product image: Nema kad v.20"
@@ -54,7 +62,15 @@
                         <div class="merchName strong">Nema kad v.20</div>
                         <div class="merchPrice">1200din + troškovi dostave</div>
                         <div class="merchState off">Rasprodato</div>
-                        <div class="merchOrder">Naručite putem društvenih mreža ili mejla</div>
+                        <div class="merchOrder">Naručite porukom putem društvenih mreža</div>
+                        <div class="merchOrder">
+                            <a href="https://www.instagram.com/lusteribend/" class="orderBtn" target="_blank" rel="noopener" aria-label="Naruči putem Instagrama">
+                                Instagram
+                            </a>
+                            <a href="https://www.facebook.com/lusteribend" class="orderBtn" target="_blank" rel="noopener" aria-label="Naruči putem Facebook-a">
+                                Facebook
+                            </a>
+                        </div>
                         
                     </div>
 
@@ -161,6 +177,12 @@ overlay.addEventListener('click', e => {
     lastFocusedCard?.focus();
   }
 })();
+
+document.querySelectorAll('.orderBtn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation(); // klik ne prolazi do kartice
+  });
+});
 </script>
 
 
